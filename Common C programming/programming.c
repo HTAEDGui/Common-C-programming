@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include<string.h>
 #include<math.h>
+#include<stdlib.h>
+//#include<conio.h>
 //main()
 //{
 //    int i, x;
@@ -405,7 +407,6 @@
 //	printf("%-8ld\n", y);
 //	printf("%-08ld\n", y);
 //	printf("%010ld\n", y);
-//	printf("%8ld\n", y);
 //}
 
 //void main()
@@ -636,6 +637,13 @@
 //		return 0;
 //	}
 //
+//	fclose(fp);//关闭文件(必须有)
+//	while (c != '\n')//读取到回车键停止；
+//	{
+//		fputc(c, fp);//写入到文件；
+//		c = getchar();//再次读取下一个字符；
+//	}
+//	fclose(fp);//关闭文件（必须有）
 //	p = gets();//获取字符串；
 //	fputs(p, fp);
 //	//c = getchar();//先读取屏幕上面输入的一个字符；
@@ -834,20 +842,113 @@ void move(int*x，int n，int m)*/
 
 //main()
 //{
-//	//dx>大写字母、 xx>小写字母、 kg>空格、 sz>数字和other>其他
-//	int dx = 0, xx = 0, sz = 0, kg = 0, other = 0, i = 0;
-//	char* p, str[30];
-//	printf("input the string:");
-//	while ((str[i] = getchar()) != '\n')
-//		i++;
-//	for (p = str; *p != '\n'; p++)
+//main()
+//{
+//	int i, n = 0;
+//	for (i = 0; i < 8; i++)
 //	{
-//		if ((*p >= 'A') && (*p <= 'Z')) ++dx;
-//		else if ((*p >= 'a') && (*p <= 'z')) ++xx;
-//		else if (*p == ' ') ++kg;
-//		else if ((*p >= '0') && (*p <= '9')) ++sz;
-//		else ++other;
+//		//n = rand() % 5;//0-4的随机数
+//		printf("输入一个0-4的随机数：");
+//		scanf("%d", &n);
+//		switch (n)
+//		{
+//		case 1:
+//		case 3:printf("%d\n", n); break;//只跳出switch语句，继续执行switch之后的语句
+//		case 2:
+//		case 4:printf("%d\n", n); continue;//跳出本次for循环，进行下一次for循环
+//		case 0:exit(0);//退出整个程序
+//		}
+//		printf("%d\n", n);
 //	}
-//	printf("upper number:%d,lower number:%d,", dx, xx);
-//	printf("space number:%d,digit number :%d, other number:%d\n", kg, sz, other);
 //}
+
+//union pw
+//{
+//	int i;
+//	char ch[2];
+//}a;
+//main()
+//{
+//	a.ch[0] = 13;//-->0x0d
+//	a.ch[1] = 0;//-->0x00
+//	printf("%d\n", a.i);//-->0x000d
+//	printf("%d\n", sizeof(union pw));
+//}
+
+//void sort(int a[], int n)
+//{
+//	int i, j, t;
+//	for (i = 0; i < n - 1; i++)
+//		for (j = i + 1; j < n; j++)
+//			if (a[i] < a[j])
+//			{
+//				t = a[i]; a[i] = a[j]; a[j] = t;
+//			}
+//}
+//main()
+//{
+//	int aa[10] = { 1,2,3,4,5,6,7,8,9,10 }, i;
+//	sort(&aa[3], 5);
+//	for (i = 0; i < 10; i++)
+//		printf("%d,", aa[i]);
+//	printf("\n");
+//}
+
+//main()
+//{
+//	char* s[] = { "PASCAL", "FORTRAN", "COBOL", "BASIC" };
+//	char** p;
+//	int n;
+//	p = s;
+//	for (n = 0; n < 4; n++)
+//		printf("%s\n", *(p++));
+//}
+
+//#define M 100
+//void fun(int m, int* a, int* n)
+//{
+//	int i, j = 0;
+//	for (i = 1; i <= m; i++)
+//		if (i % 7 == 0 || i % 11 == 0)
+//			a[j++] = i;
+//	*n = j;
+//}
+//
+//main()
+//{
+//	int aa[M], n, k;
+//	//clrscr();
+//
+//	fun(10, aa, &n);
+//	for (k = 0; k < n; k++)
+//		if ((k + 1) % 20 == 0) printf("\n");
+//		else printf("%4d", aa[k]);
+//	printf("\n");
+//}
+
+//int fun(int x)
+//{
+//	static int t = 0;
+//	return (t += x);
+//}
+//main()
+//{
+//	int s, i;
+//	for (i = 1; i <= 5; i++) s = fun(i);
+//	printf("%d\n", s);
+//}
+
+//main()
+//{
+//	int j, a[] = { 1,3,5,7,9,11,13,15 }, * p = a + 5;
+//	for (j = 3; j; j--)
+//	{
+//		switch (j)
+//		{
+//		case 1:
+//		case 2: printf("%d", *p++); break;
+//		case 3:printf("%d", *(--p));
+//		}
+//	}
+//}
+	
