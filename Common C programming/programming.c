@@ -100,6 +100,7 @@
 //	float d = -.18;
 //}
 
+
 //void main()
 //{
 //	char s1[10] = "12";
@@ -408,6 +409,7 @@
 //	printf("%8ld\n", y);
 //}
 
+
 //void main()
 //{
 //	char p1[10] = "abc", * p2 = "ABC", str[50] = "xyz";
@@ -636,15 +638,13 @@
 //		return 0;
 //	}
 //
-//	p = gets();//获取字符串；
-//	fputs(p, fp);
-//	//c = getchar();//先读取屏幕上面输入的一个字符；
-//	//while (c != '\n')//读取到回车键停止；
-//	//{
-//	//	fputc(c, fp);//写入到文件；
-//	//	c = getchar();//再次读取下一个字符；
-//	//}
-//	fclose(fp);//关闭文件(必须有)
+//	c = getchar();//先读取屏幕上面输入的一个字符；
+//	while (c != '\n')//读取到回车键停止；
+//	{
+//		fputc(c, fp);//写入到文件；
+//		c = getchar();//再次读取下一个字符；
+//	}
+//	fclose(fp);//关闭文件（必须有）
 //}
 
 //文件的读取“r”
@@ -851,3 +851,4 @@ void move(int*x，int n，int m)*/
 //	printf("upper number:%d,lower number:%d,", dx, xx);
 //	printf("space number:%d,digit number :%d, other number:%d\n", kg, sz, other);
 //}
+
