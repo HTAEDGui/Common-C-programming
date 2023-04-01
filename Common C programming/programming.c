@@ -102,6 +102,18 @@
 //	float d = -.18;
 //}
 
+
+=========
+>>>>>>>>> Temporary merge branch 2
+
+=========
+>>>>>>>>> Temporary merge branch 2
+
+=========
+>>>>>>>>> Temporary merge branch 2
+
+=========
+>>>>>>>>> Temporary merge branch 2
 //void main()
 //{
 //	char s1[10] = "12";
