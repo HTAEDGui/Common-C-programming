@@ -101,7 +101,6 @@
 //	float c = -.18;
 //	float d = -.18;
 //}
-
 //void main()
 //{
 //	char s1[10] = "12";
