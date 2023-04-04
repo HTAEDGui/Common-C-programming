@@ -27,7 +27,7 @@
 //        printf("%3d", a[i]);
 //}
 /*加入一个数不改变顺序*/
-//
+
 //void main()
 //{
 //	int a[11] = { 20,18,16,14,13,10,8,5,2,0, };
@@ -1037,6 +1037,91 @@ void move(int*x，int n，int m)*/
 //			printf("%d\n", i);
 //		}
 //	}
+//}
+
+/*输入一个不多于五位数的正整数，判断它是几位，并逆序输 出
+各位数字。*/
+//方法1
+//f(int n)//递归倒序输出
+//{
+//	if (n % 10 > 0)
+//	{
+//		printf("%d", n % 10);
+//		f(n / 10);
+//	}
+//	else
+//	{
+//		printf("\n");
+//	}
+//}
+//void main()
+//{
+//	int n = 0, x = 0, i = 5;
+//	while (i--)//测试使用
+//	{
+//		printf("输入一个五位以内的数\n");
+//		scanf("%d", &n);
+//		if (n / 10000 > 0)x = 5;
+//		else if (n / 1000 > 0)x = 4;
+//		else if (n / 100 > 0)x = 3;
+//		else if (n / 10 > 0)x = 2;
+//		else x = 1;
+//		printf("%d有%d位数\n倒序输出为:", n, x);
+//		f(n);
+//	}
+//}
+//方法2
+//main()//简单方式while循环
+//{
+//	int i = 0, n;
+//	printf("输入一个五位以内的数\n");
+//	scanf("%d", &n);
+//	printf("倒序输出为：");
+//	while (n)
+//	{
+//		printf("%d", n % 10);//输出最低位
+//		n /= 10;//除去最低位
+//		i++;//位数+1
+//	}
+//	printf("\n一共有%d位\n", i);
+//}
+
+/*编写一个程序，将将两个字符串连接起来，不能使用 strcat 函
+数。*/
+//main()
+//{
+//	char a[20] = "abcdef";
+//	char b[10] = "fghij";
+//	int i = 0, j = 0;
+//	while (a[i] != '\0')i++;//先把第一个字符串遍历一遍直到\0
+//	while (b[j] != '\0')
+//	{
+//		a[i++] = b[j++];//从\0以后开始吧第二个字符串加在后面
+//	}
+//	a[i] = '\0';//最后添加一个\0做停止符
+//	printf("%s", a);
+//}
+
+/*一个数如果恰好等于它的因子之和，这个数被称为“完数”。求
+1000 以内的所有完数。*/
+
+//int main()
+//{
+//	int i, j, sum = 0;
+//	for (i = 2; i <= 1000; i++)
+//	{
+//		sum = 0;
+//		for (j = 1; j < i; j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				sum = sum + j;
+//			}
+//		}
+//		if (sum == i) {
+//			printf("%d\n", i);
+//		}
+//	}
 //	return 0;
 //}
 
@@ -1338,4 +1423,138 @@ void move(int*x，int n，int m)*/
 //		printf("score%d:\t%.2f\n", i, s[0].score[i]);
 //	}
 //	printf("ave:\t%.2f\n", s[0].ave);
+//}
+
+//main()
+//{
+//	union
+//	{
+//		int i[2];
+//		int k;
+//		char c[8];
+//	}t, * s = &t;
+//	s->i[0] = 0x39;
+//	s->i[1] = 0x38;
+//	printf("%d\n", s->k);
+//	printf("%c\n", s->c[0]);
+//	printf("%c\n", s->c[4]);
+//}
+
+//int a = 1;//全局变量a
+//int f(int c)
+//{
+//	static int a = 2;//局部静态变量a
+//	c = c + 1;
+//	return (a++) + c;
+//}
+//main()
+//{
+//	int i, k = 0;
+//	for (i = 0; i < 2; i++)
+//	{
+//		int a = 3;//局部变量a
+//		k += f(a);
+//	}
+//	k += a;//此处a为全局变量a
+//	printf("%d\n", k);
+//}
+/*上面代码等同于下面*/
+//int a = 1;//全局变量a
+//int f(int c)
+//{
+//	static int b = 2;//局部静态变量b
+//	c = c + 1;
+//	return (b++) + c;
+//}
+//main()
+//{
+//	int i, k = 0;
+//	for (i = 0; i < 2; i++)
+//	{
+//		int c = 3;//局部变量c
+//		k += f(c);
+//	}
+//	k += a;//此处a为全局变量a
+//	printf("%d\n", k);
+//}
+
+/*编写一个函数， 输入 n 为偶数时， 调用函数求 1/2+1/4+...+1/n,当输入 n 为奇数时，
+调用函数 1/1+1/3+...+1/n*/
+
+//float f(int n)
+//{
+//	int i;
+//	float sum = 0;
+//	if (n % 2 == 0)i = 2;
+//	else i = 1;
+//	while (i <= n)
+//	{
+//		sum += 1.0 / i;
+//		i += 2;
+//	}
+//	return sum;
+//}
+//main()
+//{
+//	int n;
+//	printf("输入n：");
+//	scanf("%d", &n);
+//	printf("\n%f\n", f(n));
+//}
+
+/*完成下面的函数sort，该函数用选择法对数组a由小到大排序，数组a有n个元素*/
+
+//void sort(int a[], int n)
+//{
+//	int i, j, t;
+//	for ( i = 0; i < n; i++)
+//	{
+//		for ( j = i; j < n; j++)
+//		{
+//			if (a[i]>a[j])
+//			{
+//				t = a[i];
+//				a[i] = a[j];
+//				a[j] = t;
+//			}
+//		}
+//	}
+//}
+//main()
+//{
+//	int i, b[] = { 4,15,3,9,7,6,8,1 };
+//	sort(b, 8);
+//	for ( i = 0; i < 8; i++)
+//	{
+//		printf("%d  ", b[i]);
+//	}
+//	printf("\n");
+//}
+
+/*输入两个字符串s1，s2，并从s1中删除s2中的字符。例如，
+s1为“abcaa63akdfk”，s2为“ayk5”，程序运行后输出：bc63df。*/
+
+//void main()
+//{
+//	void fun(int* s1, int* s2);
+//	char s1[15] = "aabcaa63akdfk", s2[10] = "ayk5";
+//	fun(s1, s2);
+//	printf("%s\n", s1);
+//}
+//void fun(char* s1, char* s2)
+//{
+//	int i, j, k;
+//	for (i = 0; s2[i] != '\0'; i++)
+//	{
+//		for (j = 0; s1[j] != '\0'; j++)
+//		{
+//			while (s2[i] == s1[j])//只要有一样的就一直循环，如果用if就会出现两个一样的只会删除一个
+//			{
+//				for (k = j; s1[k] != '\0'; k++)
+//				{
+//					s1[k] = s1[k + 1];
+//				}
+//			}
+//		}
+//	}
 //}
