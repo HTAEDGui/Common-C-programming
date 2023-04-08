@@ -45,7 +45,7 @@
 //		// 输入待插入的数
 //		printf("输入待插入的数：");
 //		scanf("%d", &x);
-//		// 将x插入到已排序数组中,“关键语句”
+//		// 将x插入到已排序数组中,"关键语句"
 //
 //		i = 9;
 //		while (i >= 0 && a[i] < x)
@@ -354,7 +354,7 @@
 //	}
 //}
 
-/*输入1000内的自然数判断是不是“自守数”：这个数的平方，末尾与这个数相等*/
+/*输入1000内的自然数判断是不是"自守数"：这个数的平方，末尾与这个数相等*/
 
 //main()
 //{
@@ -464,7 +464,7 @@
 //	int n, i;
 //	printf("\nplease input a number:\n");
 //	scanf("%d", &n);
-//	printf("%d=", n);//输出前面的“n=”。
+//	printf("%d=", n);//输出前面的"n="。
 //	for (i = 2; i <= n; i++)//除数从2开始一直增加。
 //	{
 //		while (n != i)
@@ -664,7 +664,7 @@
 
 							/*文件的操作*/
 
-//文件的写入“w”
+//文件的写入"w"
 //main()
 //{
 //	char c = 0;
@@ -696,7 +696,7 @@
 //	fclose(fp);//关闭文件(必须有)
 //}
 
-//文件的读取“r”
+//文件的读取"r"
 
 //main()
 //{
@@ -719,7 +719,7 @@
 //	fclose(fp);
 //}
 
-//文件的追加“a”
+//文件的追加"a"
 
 //main()
 //{
@@ -1056,7 +1056,7 @@ void move(int*x，int n，int m)*/
 //	printf("%s", a);
 //}
 
-/*一个数如果恰好等于它的因子之和，这个数被称为“完数”。求
+/*一个数如果恰好等于它的因子之和，这个数被称为"完数"。求
 1000 以内的所有完数。*/
 
 //int main()
@@ -1141,7 +1141,7 @@ void move(int*x，int n，int m)*/
 //	printf("%s", a);
 //}
 
-/*一个数如果恰好等于它的因子之和，这个数被称为“完数”。求
+/*一个数如果恰好等于它的因子之和，这个数被称为"完数"。求
 1000 以内的所有完数。*/
 
 //int main()
@@ -1320,7 +1320,7 @@ void move(int*x，int n，int m)*/
 //	for (i = 0; i < 2; i++)
 //		for (j = 0; j < 3; j++)
 //			a[i][j] = *(b + i) + j;
-//	p = a[0];//把a[0]指向的‘行’地址赋值给二级指针p；
+//	p = a[0];//把a[0]指向的'行'地址赋值给二级指针p；
 //	for (m = 0; m < 6; m++)
 //	{
 //		printf("%4d", **p);
@@ -1571,7 +1571,7 @@ void move(int*x，int n，int m)*/
 //}
 
 /*输入两个字符串s1，s2，并从s1中删除s2中的字符。例如，
-s1为“abcaa63akdfk”，s2为“ayk5”，程序运行后输出：bc63df。*/
+s1为"abcaa63akdfk"，s2为"ayk5"，程序运行后输出：bc63df。*/
 
 //void main()
 //{
@@ -1689,4 +1689,145 @@ s1为“abcaa63akdfk”，s2为“ayk5”，程序运行后输出：bc63df。*/
 //	//printf("%d\n", *p.id);//错误
 //	printf("%d\n", (*p).id);
 //	printf("%d\n", p->id);
+//}
+
+//main()//二维数组初始化
+//{
+//	int i = 0, j = 0;
+//	int a[][4] = { 0,0 };//部分初始化，未初始化部分默认为0；
+//	int b[1][4];		 //未初始化，随机值；
+//	printf("%d", a[1][2]);
+//}
+
+//main()
+//{
+//	char s[10];
+//	int a1, a2;
+//	char c1, c2;
+//	scanf("%d%c%d%c", &a1, &c1, &a2, &c2);
+//	//1.输入形式：1a<空格>2b<回车>
+//	//2.输入形式：1a2b<回车>
+//	printf("%d\n%c\n%d\n%c\n", a1, c1, a2, c2);
+//	//输出结果都是
+//	//1
+//	//a
+//	//2
+//	//b
+//
+//	//scanf("%s", s);
+//	//printf("%s", s);
+//}
+
+/*用递归输出杨辉三角某行某列的值*/
+
+//int f(int i, int j)
+//{
+//	if (j == 1 || i == j)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return f(i - 1, j - 1) + f(i - 1, j);
+//	}
+//}
+//main()
+//{
+//	int i, j;
+//	scanf("%d%d", &i, &j);
+//	printf("%d", f(i, j));
+//}
+
+/*用C语言递归输出杨辉三角正三角形前7行*/
+
+//int f(int i, int j)
+//{
+//	if (j == 0 || i == j)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return f(i - 1, j - 1) + f(i - 1, j);
+//	}
+//}
+//main()
+//{
+//	int i, j, k;
+//	for (i = 0; i < 7; i++)
+//	{
+//		for (k = 0; k < 7 - i; k++)printf(" ");
+//		for (j = 0; j <= i; j++)printf("%d ", f(i, j));
+//		printf("\n");
+//	}
+//}
+
+//main()
+//{
+//	int a[5] = { 2,4,5,6,10 }, * p, ** k;
+//	p = a;
+//	k = &p;//k里面储存的是p的地址，
+//	printf("%d  ", *(p++));
+//	printf("%d\n", **k);
+//}
+
+//point(char* p)
+//{
+//	p += 3;//传地址可以改值，但不能改地址；
+//}
+//main()
+//{
+//	char b[4] = { 'a','c','s','f' }, * pt = b;
+//	point(pt);
+//	printf(" % c\n", *pt);
+//}
+
+/*用函数mypow(a,n)求a的n次方*/
+
+//double mypow(double a, int n)
+//{
+//	double m = 1;
+//	while (n-- != 0)
+//	{
+//		m *= a;
+//	}
+//	return m;
+//}
+//main()
+//{
+//	double a = 5.0;
+//	int n = 5;
+//	printf("%15.1f", mypow(a, n));
+//}
+
+/*C 语言递归函数,实现将输入的 5 个字符以相反顺序打印出来*/
+
+//void print_reverse(char arr[], int n) {
+//    if (n == 0) {
+//        return;
+//    }
+//    else {
+//        printf("%c", arr[n - 1]);
+//        print_reverse(arr, n - 1);
+//    }
+//}
+//int main() {
+//    char arr[5]="abcde";
+//    print_reverse(arr, 5);
+//    printf("\n");
+//    return 0;
+//}
+
+//main()
+//{
+//	int a = 5, b;
+//	b = (a++) + (a++) + (a++);//a++的值是在；结束后才加上去的
+//	printf("%d\n", b);
+//	printf("%d\n", a);
+//}
+
+//main()
+//{
+//	int a = 3, b = 5;
+//	printf("%d", a<<1);
 //}
