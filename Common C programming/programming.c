@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include <stdio.h>
+#include<stdio.h>
 #include<string.h>
 #include<math.h>
 #include<stdlib.h>
@@ -322,34 +322,34 @@
 //	printf("礼炮响%d次\n", n);
 //}
 
-/*求一元二次方程的值*/
-//
+/*从键盘上任意输入a,b,c求一元二次方程的两根，如果没有就输出"方程无实根"的信息。*/
+
 //main()
 //{
 //	float a, b, c, d, x1, x2;
 //	printf("输入abc三个值\n");
 //	scanf("%f%f%f", &a, &b, &c);
-//	if (fabs(a) <= 1e-6)
-//	{
-//		printf("a=0不是一元二次方程\n");
-//	}
+//	//if (fabs(a) <= 1e-6)
+//	if (fabs(a) == 0) printf("a=0不是一元二次方程\n");
 //	else
 //	{
 //		d = b * b - 4 * a * c;
-//		if (fabs(d) < 1e-6)
+//		//if (fabs(d) < 1e-6)
+//		if (fabs(d) == 0)
 //		{
 //			x1 = x2 = (-b) / (2 * a);
-//			printf("x1=x2=%f\n", x1);
+//			printf("有两个相等的实数根：x1=x2=%f\n", x1);
 //		}
-//		else if (d > 1e-6)
+//		//else if (d > 1e-6)
+//		else if (d > 0)
 //		{
 //			x1 = (-b + sqrt(d)) / (2 * a);
 //			x2 = (b + sqrt(d)) / (2 * a);
-//			printf("x1=%f,x2=%f\n", x1, x2);
+//			printf("两根分别为：x1=%f,x2=%f\n", x1, x2);
 //		}
 //		else
 //		{
-//			printf("没有根\n");
+//			printf("方程无实根\n");
 //		}
 //	}
 //}
@@ -467,12 +467,12 @@
 //	printf("%d=", n);//输出前面的"n="。
 //	for (i = 2; i <= n; i++)//除数从2开始一直增加。
 //	{
-//		while (n != i)
+//		while (n > i)
 //		{
 //			if (n % i == 0)//判断n%i是否整除。
 //			{
 //				printf("%d*", i);//整除则输出i。
-//				n = n / i;//把商赋值给n。
+//				n /= i;//把商赋值给n。
 //			}
 //			else
 //				break;
@@ -1042,6 +1042,7 @@ void move(int*x，int n，int m)*/
 
 /*编写一个程序，将将两个字符串连接起来，不能使用 strcat 函
 数。*/
+
 //main()
 //{
 //	char a[20] = "abcdef";
@@ -1056,7 +1057,7 @@ void move(int*x，int n，int m)*/
 //	printf("%s", a);
 //}
 
-/*一个数如果恰好等于它的因子之和，这个数被称为"完数"。求
+/*一个数如果恰好等于它的因子(能被整除的数)之和，这个数被称为"完数"。求
 1000 以内的所有完数。*/
 
 //int main()
@@ -1738,7 +1739,7 @@ s1为"abcaa63akdfk"，s2为"ayk5"，程序运行后输出：bc63df。*/
 //	printf("%d", f(i, j));
 //}
 
-/*用C语言递归输出杨辉三角正三角形前7行*/
+/*用C语言递归输出杨辉三角"正三角"形前10行*/
 
 //int f(int i, int j)
 //{
@@ -1753,13 +1754,37 @@ s1为"abcaa63akdfk"，s2为"ayk5"，程序运行后输出：bc63df。*/
 //}
 //main()
 //{
-//	int i, j, k;
-//	for (i = 0; i < 7; i++)
+//	int i, j;
+//	int k;
+//	for (i = 0; i < 10; i++)
 //	{
-//		for (k = 0; k < 7 - i; k++)printf(" ");
-//		for (j = 0; j <= i; j++)printf("%d ", f(i, j));
+//		for (k = 0; k < 10 - i; k++)printf("  ");
+//		for (j = 0; j <= i; j++)printf("%4d", f(i, j));
 //		printf("\n");
 //	}
+//}
+
+/*不用递归，输出杨辉三角"正三角"形前10行*/
+
+//#define N 10
+//int main(void)
+//{
+//	int arr[N][N] = { 0 };
+//	int i, j, m;
+//	for (i = 0; i < N; i++)
+//	{
+//		for (m = 0; m < N - i; m++)printf("  ");
+//		for (j = 0; j <= i; j++)
+//		{
+//			if ((0 == j) || (i == j))
+//				arr[i][j] = 1;
+//			else
+//				arr[i][j] = arr[i - 1][j] + arr[i - 1][j - 1];
+//			printf("%4d", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
 //}
 
 //main()
@@ -1830,4 +1855,509 @@ s1为"abcaa63akdfk"，s2为"ayk5"，程序运行后输出：bc63df。*/
 //{
 //	int a = 3, b = 5;
 //	printf("%d", a<<1);
+//}
+
+/*输入某年某月某天，输出这是该年的第几天,"switch形式"*/
+
+//// 判断某一年是否为闰年，是则返回1，不是则返回0
+//int is_leap_year(int year) {
+//    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+//}
+//
+//// 计算某个月份的天数，需要传入年份和月份
+//int get_days_in_month(int year, int month) {
+//    int days = 0;
+//    switch (month) {
+//    case 1:
+//    case 3:
+//    case 5:
+//    case 7:
+//    case 8:
+//    case 10:
+//    case 12:
+//        days = 31;
+//        break;
+//    case 4:
+//    case 6:
+//    case 9:
+//    case 11:
+//        days = 30;
+//        break;
+//    case 2:
+//        days = is_leap_year(year) ? 29 : 28;
+//        break;
+//    default:
+//        printf("Invalid input!\n");
+//        break;
+//    }
+//    return days;
+//}
+//
+//// 计算当前日期是一年中的第几天
+//int day_of_year(int year, int month, int day) {
+//    int i, days = 0;
+//    for (i = 1; i < month; i++) {
+//        days += get_days_in_month(year, i);
+//    }
+//    days += day;
+//    return days;
+//}
+//
+//int main() {
+//    int year, month, day;
+//    printf("请输入日期（格式：年 月 日，用空格分隔）：\n");
+//    scanf("%d %d %d", &year, &month, &day);
+//    printf("这是今年的第%d天\n", day_of_year(year, month, day));
+//    return 0;
+//}
+
+/*输入某年某月某天，输出这是该年的第几天,"数组形式"*/
+
+//// 判断某一年是否为闰年，是则返回1，不是则返回0
+//int is_leap_year(int year) {
+//    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+//}
+//
+//// 计算当前日期是一年中的第几天
+//int day_of_year(int year, int month, int day) {
+//    int i, days = 0;
+//    // 定义一个数组存储每个月份对应的天数
+//    int days_in_month[] = { 31, is_leap_year(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+//    for (i = 1; i < month; i++) {
+//        days += days_in_month[i - 1];
+//    }
+//    days += day;
+//    return days;
+//}
+//
+//int main() {
+//    int year, month, day;
+//    printf("请输入日期（格式：年 月 日，用空格分隔）：\n");
+//    scanf("%d %d %d", &year, &month, &day);
+//    printf("这是今年的第%d天\n", day_of_year(year, month, day));
+//    return 0;
+//}
+
+/*结构体里面的共用体*/
+
+//union un
+//{
+//	int i;
+//	long y;
+//	char z[8];
+//};
+//struct st
+//{
+//	float a[3];
+//	union un b;
+//};
+//main()
+//{
+//	printf("%d\n", sizeof(struct st));
+//	printf("%d\n", sizeof(union un));
+//}
+
+/*将三个支付串a,b,c从小到大排序后输出。注意：字符串比较函数为strcmp();字符串赋值函数为strcyp();*/
+
+//void fun(char a[], char b[], char c[])
+//{
+//	char t[15];
+//	if (strcmp(a, b) > 0)
+//	{
+//		strcpy(t, a);
+//		strcpy(a, b);
+//		strcpy(b, t);
+//	}
+//	if (strcmp(a, c) > 0)
+//	{
+//		strcpy(t, a);
+//		strcpy(a, c);
+//		strcpy(c, t);
+//	}
+//	if (strcmp(b, c) > 0)
+//	{
+//		strcpy(t, b);
+//		strcpy(b, c);
+//		strcpy(c, t);
+//	}
+//}
+
+//main()
+//{
+//	char str1[15] = "Fuzhou", str2[15] = "Fujian", str3[15] = "China";
+//	fun(str1, str2, str3);
+//	printf("%s\n%s\n%s\n", str1, str2, str3);
+//}
+
+//main()
+//{
+//	puts("qwe");puts("qwe");puts("qwe");//puts();会在字符串输出结束后自动加一个\n换行
+//}
+
+/*有 n 个人围成一圈，顺序排号。从第一个人开始报数（从 1 到 3 报数），凡报到 3 的人
+退出圈子，问最后留下的是原来第几号的那位。*/
+
+//main()
+//{
+//	int i, j, m, n = 0, a[50];
+//	printf("输入n\n");
+//	scanf("%d", &n);
+//	for (i = 0; i < n; i++)
+//	{
+//		a[i] = i + 1;
+//	}
+//	i = 0;
+//	j = 0;
+//	m = n;
+//	while (m > 1)
+//	{
+//		if (a[i] != 0)j++;
+//		if (j == 3)
+//		{
+//			a[i] = 0;
+//			j = 0;
+//			m--;
+//		}
+//		i++;
+//		if (i == n)i = 0;
+//	}
+//	while (a[i] == 0)i++;
+//	printf("最后一个人是原来的%d号\n", a[i]);
+//}
+
+//#define nmax 50
+//int main()
+//{
+//	int i, k, m, n, num[nmax];
+//	printf("输入总人数:");
+//	scanf("%d", &n);
+//	for (i = 0; i < n; i++)
+//		num[i] = i + 1;
+//	i = 0;
+//	k = 0;
+//	m = 0;
+//	while (m < n - 1)
+//	{
+//		if (num[i] != 0) k++; //报数
+//		if (k == 3)
+//		{
+//			num[i] = 0; //退出
+//			k = 0;
+//			m++; //退出的总人数
+//		}
+//		i++;
+//		if (i == n) i = 0;
+//	}
+//	i = 0;
+//	while (num[i] == 0) i++;
+//	printf("留下的是原来的%d号\n", num[i]);
+//	return 0;
+//}
+
+/*编写一函数 int strcmp_u(char *p1,char *p2)，实现两个字符串的比较。当字符串 1=字符串
+2 时，返回 0；当字符串 1 ≠字符串 2 时，返回它们两者第一个不同字符的 ASCII 码的差
+值*/
+
+//int strcmp_u(char* p1, char* p2)
+//{
+//	while (*p1 != '\0' && *p2 != '\0')
+//	{
+//		if (*p1 != *p2) return *p1 - *p2;
+//		p1++;
+//		p2++;
+//	}
+//	if (*p1 == '\0' && *p2 == '\0') return 0;
+//	else return *p1 - *p2;
+//}
+//main()
+//{
+//	char* p1 = "877";
+//	char* p2 = "876";
+//	printf("%d", strcmp_u(p1, p2));
+//}
+
+//int main()
+//{
+//	int s, t, a = 2, b = 4;
+//	s = 1; t = 1;
+//	if (a > 0) s = s + 1;
+//	if (a > b) t = s + t;
+//	else if (a == b) t = 5;
+//	else t = 2 * s;
+//	printf("s = % d, t = % d", s, t);
+//	return 0;
+//}
+
+//main()
+//{
+//	double a = 3.14;
+//	printf("%d\n", a);//输出别的数字
+//	printf("%d\n", (int)a);
+//}
+
+//main()
+//{
+//	int a = 1, b = 2, c = 3, d = 4, e = 5;
+//	printf("%d\n", a > b ? a : d > e ? d : e);//5
+//	printf("%d\n", a > b ? a : (d > e ? d : e));//5
+//	printf("%d\n", (a > b ? a : d) > e ? d : e);//5
+//}
+
+/*编写一函数 int strcpy_u(char *p1,char *p2)，实现两个字符串的复制。*/
+
+//int strcpy_u(char* p1, char* p2)
+//{
+//	while (*p1 != '\0' && *p2 != '\0')
+//	{
+//		*p1 = *p2;
+//		p1++;
+//		p2++;
+//	}
+//	*p1 = '\0';
+//	return 0;
+//}
+//main()
+//{
+//	char a[20] = "abcdefghijk";
+//	char b[10] = "ABCDE";
+//	strcpy_u(a, b);
+//	printf("%s", a);
+//}
+
+/*编写程序，输入一个不超过 10 位的正整数，判断该数是否是回文数（回文数：数字对
+称，如 12321,123321 是回文数）。要求用数组实现。*/
+
+//main()
+//{
+//	int a[10], i, j, flag = 1, m = 5;
+//	long n, num;
+//	while (m--)
+//	{
+//		printf("输入一个不超过十位的数:");
+//		scanf("%d", &n);
+//		num = n;
+//		for (i = 0; n != 0; n /= 10, i++)a[i] = n % 10;
+//		for (j = 0; j < i / 2; j++)
+//			if (a[j] != a[i - j - 1])flag = 0;
+//		if (flag)printf("%ld是回数。\n", num);
+//		else printf("%ld不是回数。\n", num);
+//	}
+//}
+
+//main()
+//{
+//	printf("%.1f\n", 3.159);
+//	printf("%.1f\n", 3.161);
+//}
+
+/*猴子吃桃，每天吃一半加一，第十天只剩一个，问第一天摘几个*/
+
+//main()
+//{
+//	int x = 1, d;
+//	for (d = 9; d >= 1; d--)
+//	{
+//		x = (x + 1) * 2;
+//	}
+//	printf("第一天摘%d个桃子。\n", x);//1534个
+//}
+//main()
+//{
+//	int day, x1, x2;
+//	day = 9;
+//	x2 = 1;
+//	while (day > 0)
+//	{
+//		x1 = (x2 + 1) * 2;/*第一天的桃子数是第2天桃子数加1后的2倍*/
+//		x2 = x1; day--;
+//	}
+//	printf("the total is %d\n", x1);
+//}
+
+//void printf_str(int n, char* p)
+//{
+//	while (n--)
+//	{
+//		printf("%c ", *p);
+//		p++;
+//	}
+//}
+//main()
+//{
+//	char a[40], * p = a;
+//	scanf("%s", a);
+//	int n = strlen(a);
+//	printf_str(n, p);
+//}
+
+/*编写程序，删除一维数组中重复出现的元素。*/
+
+//#define MAX 50
+//main()
+//{
+//	int i, j, k, t, a[MAX];
+//	int n = MAX;
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &a[i]);
+//	}
+//	for (i = 0; i < n; i++)
+//	{
+//		t = a[i];
+//		for (j = i + 1; j < n; j++)
+//		{
+//			if (a[j] == t)
+//			{
+//				for (k = j; k < n - 1; k++)
+//				{
+//					a[k] = a[k + 1];
+//				}
+//				j--;
+//				n--;
+//			}
+//		}
+//	}
+//	for (i = 0; i < n; i++)
+//	{
+//		printf("%4d", a[i]);
+//		if ((i + 1) % 5==0)
+//		{
+//			printf("\n");
+//		}
+//	}
+//	printf("\n");
+//}
+
+/*两个乒乓球队进行比赛，各出三人。甲队为 a,b,c 三人，乙队为 x,y,z 三人。已抽签决定
+比赛名单。有人向队员打听比赛的名单。 a 说他不和 x 比， c 说他不和 x,z 比，请编程序
+找出三队赛手的名单。*/
+
+//int main()
+//{
+//	char i, j, k;/*i 是 a 的对手， j 是 b 的对手， k 是 c 的对手*/
+//	for (i = 'x'; i <= 'z'; i++)
+//		for (j = 'x'; j <= 'z'; j++)
+//		{
+//			if (i != j)
+//				for (k = 'x'; k <= 'z'; k++)
+//				{
+//					if (i != k && j != k)
+//					{
+//						if (i != 'x' && k != 'x' && k != 'z')
+//							printf("order id a--%c\tb--%c\tc--%c\n", i, j, k);
+//					}
+//				}
+//		}
+//	return 0;
+//}
+
+//main()
+//{
+//	int x = 1,z;
+//	z = x-- || x++;//||左边为1直接短路；
+//	printf("x=%d,z=%d", x, z);
+//}
+
+//main()
+//{
+//	//char str[6] = { 65,66,67,68,69,0 };
+//	char str[4] = "abcd";
+//	printf("%s", str);
+//}
+
+//main()
+//{
+//	char a[20];
+//	scanf("%s", a);//遇见 空格，回车，tab停止输入；
+//	printf("%s", a);
+//}
+
+/*下列程序功能是：验证一个大于等于 6 偶数总能表示为两个素数之和。请填空。*/
+
+//int main()
+//{
+//	int a, b, c, d;
+//	scanf("%d", &a);
+//	for (b = 3; b <= a / 2; b += 2)
+//	{
+//		for (c = 2; c < b; c++)
+//			if (b % c == 0) break;
+//		if (c >= b)
+//			d = a - b;
+//		else
+//			continue;
+//		for (c = 2; c < d; c++)
+//			if (d % c == 0) break;
+//		if (c >= d)
+//		{
+//			printf("%d=%d+%d\n", a, b, d); break;
+//		}
+//	}
+//	return 0;
+//}
+
+/*输入一个大写字母，输出字母表中它前面的字母和后面的字母。如果输入的字母为 A
+或 Z，则分别输出提示信息“没有前面的字母”或“没有后面的字母”。*/
+
+//main()
+//{
+//	char ch;
+//	int m = 5;
+//	printf("输入一个大写字母：");
+//	ch = getchar();
+//	if (ch > 'A' && ch < 'Z')
+//	{
+//		printf("前边字母为%c，后边字母为%c\n", ch - 1, ch + 1);
+//	}
+//	else if (ch == 'A')
+//	{
+//		printf("没有前边字母，后边字母为%c\n", ch + 1);
+//	}
+//	else if (ch == 'Z')
+//	{
+//		printf("前边字母为%c，没有后边字母\n", ch - 1);
+//	}
+//	else
+//	{
+//		printf("请输入大写字母。\n");
+//	}
+//}
+
+/*一球从 100m 高度自由落下，每次落地后反跳会原来高度的一半，再落下。求它第 10
+次落地时，共经过多少米？第 10 次反弹多高？*/
+
+//main()
+//{
+//	int x = 1;
+//	double h = 100, s = 0;
+//	s += h;
+//	while (x < 10)
+//	{
+//		h /= 2;
+//		s += h * 2;
+//		x++;
+//	}
+//	printf("第%d次落地一共经过%lf米，第%d次反弹高度为%lf米", x, s, x, h);
+//}
+
+/*编写一个函数void fun(char *ss)，它的功能是：将ss所指字符串中所有下标为奇数位
+置上的字母转换为大写(若该位置上不是字母，则不转换)。*/
+
+//void fun(char* ss)
+//{
+//	ss++;
+//	while (*ss != '\0')
+//	{
+//		if (*ss >= 'a' && *ss <= 'z')
+//		{
+//			*ss = *ss - 32;
+//		}
+//		ss += 2;
+//	}
+//}
+//main()
+//{
+//	char s[] = "jashdkxuzchiq";//如果直接定义char *s = "jashdkxuzchiq";在修改*s时候会出现报错："引发了异常: 写入访问权限冲突。"
+//	fun(s);
+//	printf("%s", s);
 //}
