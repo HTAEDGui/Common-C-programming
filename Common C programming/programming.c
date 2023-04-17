@@ -2361,3 +2361,499 @@ s1为"abcaa63akdfk"，s2为"ayk5"，程序运行后输出：bc63df。*/
 //	fun(s);
 //	printf("%s", s);
 //}
+
+//main()
+//{
+//	for (int i = 0, j = 10; i = j = 10; i++, j--)
+//	{
+//		printf("1");
+//	}
+//}
+
+//void stringcat(char* s, char* t)
+//{
+//	int i = 0, j = 0;
+//	while (*(s + i)) i++;
+//	while (s[i++] = t[j++]);
+//}
+//int main()
+//{
+//	char s[10] = "123", t[10] = "456";
+//	stringcat(s, t);
+//	printf("%s\n", s);
+//	return 0;
+//}
+
+//main()
+//{
+//	int _ = 10;
+//	printf("%d", _);
+//}
+
+/*韩信有一队兵，他想知道有多少人，便让士兵排队报数。按从 1 至 5 报数，最末一个士
+兵报的数为 1；按从 1 至 6 报数，最末一个士兵报的数为 5；按从 1 至 7 报数，最末一个士
+兵报的数为 4；最后再按从 1 至 11 报数，最末一个士兵报的数为 10。编程，帮韩信算出有
+多少士兵。*/
+
+//main()
+//{
+//	int i, j, k, l, n = 0;
+//	while (1)
+//	{
+//		n++;
+//		i = n % 5;
+//		j = n % 6;
+//		k = n % 7;
+//		l = n % 11;
+//		if (i == 1 && j == 5 && k == 4 && l == 10)
+//		{
+//			printf("韩信有%d个士兵\n", n);//2111个
+//			break;
+//		}
+//	}
+//}
+
+/*编写程序，输入一行不超过 80 个字符，统计其中有多少个单词，单词之间用空格分隔
+开。*/
+
+//int main()
+//{
+//	char ch[81] = { 0 };
+//	int i, num = 0, word = 0; char c;
+//	gets(ch);
+//	for (i = 0; (c = ch[i]) != '\0'; i++)
+//		if (c == ' ') word = 0;
+//		else if (word == 0)
+//		{
+//			word = 1;
+//			num++;
+//		}
+//	printf("有 %d 个单词。\n", num);
+//	return 0;
+//}
+
+//main()
+//{
+//	if (0 || 0 && 1 || 1)
+//	{
+//		printf("1");
+//	}
+//	else
+//	{
+//		printf("0");
+//	}
+//}
+
+/*求100-200之间的素数，并且一行十个输出*/
+
+//main()
+//{
+//	int i, j, n = 0, flag = 1;
+//	for (i = 100; i < 200; i++)
+//	{
+//		for (j = 2; j <= sqrt(i); j++)
+//		{
+//			flag = 1;
+//			if (i % j == 0)
+//			{
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag) { printf("%4d", i); n++; }
+//		if (n == 10) { printf("\n"); n = 0; }
+//	}
+//}
+
+//int main() {
+//	int i, j;
+//	for (i = 100; i <= 200; i++) {
+//		int flag = 1;
+//		for (j = 2; j <= sqrt(i); j++) {
+//			if (i % j == 0) {
+//				flag = 0;
+//				break;
+//			}
+//		}
+//		if (flag) {
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+/*编写int fun(char* ss, char c)功能是：求出字符串中指定字符的个数，并返回此值*/
+
+//int fun(char* ss, char c)
+//{
+//	int count = 0;
+//	while (*ss!='\0')
+//	{
+//		if (*ss==c)
+//		{
+//			count++;
+//		}
+//		ss++;
+//	}
+//	return count;
+//}
+//main()
+//{
+//	char s[] = "qweqhdugquh";
+//	char ch = 'q';
+//	printf("%d\n", fun(s, ch));
+//}
+
+/*编写函数 fun 功能是：求 Fibonacci 数列中大于 t 的最小的一个数，结果由函数返回。
+其中 Fibonacci 数列 F(n)的定义为：F(0)=0，F(1)=1,F(n)=F(n－1)＋F(n－2) 例如：当
+t = 1000 时，函数值为：1597。*/
+
+//int F(int n)
+//{
+//	if (n == 0)
+//	{
+//		return 0;
+//	}
+//	else if (n == 1)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return F(n - 1) + F(n - 2);
+//	}
+//}
+//
+//int fun(int t)
+//{
+//	int n, i = 0;
+//	while (i >= 0)
+//	{
+//		n = F(i);
+//		if (t < n)return n;
+//		i++;
+//	}
+//}
+//main()
+//{
+//	int x;
+//	printf("输入一个数：");
+//	scanf("%d", &x);
+//	printf("大于%d的第一个Fibonacci数是%d\n", x, fun(x));
+//}
+
+/*斐波那契数列衍生*/
+
+//int f(int n)
+//{
+//	int s = 0, i;
+//	if (n == 0 || n == 1)
+//		return 1;
+//	for (i = n - 1; i >= 0; i--)
+//		s += f(i) * f(n - 1 - i);
+//	return s;
+//}
+//int main()
+//{
+//	int i;
+//	for (i = 1; i <= 6; i++)
+//		printf("f(%d)=%d\n", i, f(i));
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 2, b;
+//	b = (a++) + (a++) + (a++);//a++只会在；结束那一刻加上去，在；之前全部先用,即使加了括号。
+//	printf("%d", b);
+//	return 0;
+//}
+
+/*自动四舍五入的情况，以及%d不能输出浮点数*/
+
+//main()
+//{
+//	int a;
+//	float b = 2.77;
+//	a = 2.7;//给int型赋值浮点数，会自动去掉小数点后面所有。
+//	printf("%d\n", a);
+//	printf("%d\n", b);//print函数中%d输出格式不能输出浮点数
+//	printf("%d\n", 2.77);//print函数中%d输出格式不能输出浮点数
+//
+//	printf("%.1f\n", b);//print函数中%.1f输出格式,会自动四舍五入
+//	printf("%.1f\n", 2.77);//print函数中%.1f输出格式,会自动四舍五入
+//}
+
+//main()
+//{
+//	char* p = "1201230";
+//	while (*p)//当*p指向的是字符串类型时候，while（）里面*p与*p!='\0'同理；
+//	{
+//		printf("%c", *p++);
+//	}
+//}
+
+/*键盘输入数字N，对应输出N月的英语字母；N介于1-12之间，否则输出"illegal mounth"*/
+
+//char* mounth_name(int n)
+//{
+//	char* mounth[13] = { "illegal mounth","january","february","march","april","may",
+//				"june","july","august","september","october","november","december" };
+//	if (n >= 1 && n <= 12)
+//	{
+//		return mounth[n];
+//	}
+//	else
+//	{
+//		return mounth[0];
+//	}
+//}
+//main()
+//{
+//	int n, m = 5;
+//
+//	while (m--)
+//	{
+//		printf("输入正数N：");
+//		scanf("%d", &n);
+//		printf("%d月的英语为%s\n", n, mounth_name(n));
+//	}
+//}
+
+/*从键盘上输入一个字符串，将该字符串转换成整数输出，用自定义函数long fun(char *p)来完成，
+eg：输入字符串“-1234”，输出整数-1234*/
+//long fun(char* p)
+//{
+//	long n = 0;
+//	if (*p == '-')
+//	{
+//		p++;
+//		while (*p)
+//			n = n * 10 + *(p++) - '0';
+//		return -n;
+//	}
+//	else
+//	{
+//		while (*p)
+//			n = n * 10 + *(p++) - '0';
+//		return n;
+//	}
+//}
+//main()
+//{
+//	char s[10];
+//	long n;
+//	printf("输入一个字符串：");
+//	gets(s);
+//	n = fun(s);
+//	printf("%ld\n", n);
+//}
+
+//main()
+//{
+//	int a = 12, b, c;
+//	b = 0x1f5 & a << 3;
+//	c = a << 3;
+//	printf("%d,%d,%d\n", a, b, c);
+//}
+
+//main()
+//{
+//	char str[] = "abc\00def\n";
+//	int a, b;
+//	a = strlen(str);
+//	b = sizeof(str);
+//	printf("%d,%d", a, b);
+//}
+
+//main()
+//{
+//	char* pa[6];
+//	char pb[6];
+//	char(*pc)[6];
+//	char** pd;
+//	printf("\n");//其中pa,pb,pc,pd都是指针类型；
+//}
+
+//void fun(char* w, int m)
+//{
+//	char s, * p1, * p2;
+//	p1 = w; p2 = w + m - 1;
+//	while (p1 < p2)
+//	{
+//		s = *p1++; *p1 = *p2--; *p2 = s;//不是常规的交换；
+//	}
+//}
+//int main()
+//{
+//	char a[] = "ABCDEFG";
+//	fun(a, strlen(a));
+//	puts(a);
+//	return 0;
+//}
+
+//main()
+//{
+//	printf("%d", printf("%d", printf("********************")));//printf返回值为：输出字符数量；
+//}
+
+//main()
+//{
+//	int x = 5;
+//	int b = 0;
+//	b = --x + --x + --x + --x + --x;//先把所有--x优先执行完以后，再把x的值相加；
+//	//b += --x;
+//	//b += --x;
+//	//b += --x;
+//	//b += --x;
+//	printf("%d", b);
+//}
+
+//main()
+//{
+//	float a;
+//	scanf("%3.2f", &a);//错误
+//	scanf("%3f", &a);
+//	printf("%f", a);
+//}
+
+/*有已经排好序的字符串a，将s中的每个字符串按升序的规律插入到a中。*/
+
+//main()
+//{
+//	char a[20] = "cehiknqtw";
+//	char s[] = "fbla";
+//	int i, j, k;
+//	for (k = 0; s[k] != '\0'; k++)
+//	{
+//		j = 0;
+//		while (s[k] >= a[j] && a[j] != '\0') j++;
+//		for (i = strlen(a); i > j; i--) a[i] = a[i - 1];
+//		a[j] = s[k];
+//	}
+//	puts(a);
+//}
+
+/*从键盘输入一行字符，统计其中有多少个单词，每个单词用空格隔开。*/
+
+//main()
+//{
+//	char s[80]={0}, c1, c2 = ' ';
+//	int i = 0, num = 0;
+//	gets(s);
+//	while (s[i]!='\0')
+//	{
+//		c1 = s[i];
+//		if (c1!=' '&&c2==' ')
+//		{
+//			num++;
+//		}
+//		i++;
+//		c2 = c1;
+//	}
+//	printf("有%d个单词。\n", num);
+//}
+
+/*关于%lx型的输出*/
+
+//main()
+//{
+//	int a = -2;
+//	long y = 23456;
+//	printf("%3lx\n", y);
+//	printf("%8lx\n", y);
+//	printf("%#8lx\n", y);
+//
+//	printf("%8lx\n", a);
+//}
+
+/*"水仙花数"一个三位数，三个数的立方和为他本身。*/
+
+//main()
+//{
+//	int i, a, b, c;
+//	for (i = 100; i < 1000; i++)
+//	{
+//		a = i / 100;//百位
+//		b = i / 10 % 10;//十位
+//		c = i % 10;//个位
+//		if (i == a * a * a + b * b * b + c * c * c)
+//		{
+//			printf("%4d", i);
+//		}
+//	}
+//}
+
+/*现有 10 个城市名及其春、夏、秋、冬四个季节的平均温度值，编写程序，定义合适的
+结构体，输入 10 个城市名和四季温度，计算各个城市的全年平均温度，并按照平均温度从
+低到高的顺序输出城市名、四季温度及全年平均温度。*/
+
+//#define N 4
+//main()
+//{
+//	struct temp
+//	{
+//		char name[20];
+//		float t[4];
+//		float ave;
+//	}s[N], tem;
+//	int i, j, k;
+//	float sum;
+//	printf("输入十个城市的信息：\n");
+//	for (i = 0; i < N; i++)
+//	{
+//		sum = 0;
+//		scanf("%s", s[i].name);
+//		for (j = 0; j < 4; j++)
+//		{
+//			scanf("%f", &s[i].t[j]);
+//			sum += s[i].t[j];
+//		}
+//		s[i].ave = sum / 4;
+//	}
+//	for (i = 1; i < N; i++)
+//	{
+//		for (j = 0; j < N - i; j++)
+//		{
+//			if (s[j].ave > s[j + 1].ave)
+//			{
+//				tem = s[j];
+//				s[j] = s[j + 1];
+//				s[j + 1] = tem;
+//			}
+//		}
+//	}
+//	for ( i = 0; i < N; i++)
+//	{
+//		printf("%s\n", s[i].name);
+//		for ( j = 0; j < 4; j++)
+//		{
+//			printf("%6.1f", s[i].t[j]);
+//		}
+//		printf("  ave =%6.2f\n", s[i].ave);
+//	}
+//}
+
+/*用插入法对数组a进行降序排序*/
+
+//main()
+//{
+//	int a[5] = { 4,7,8,2,5 };
+//	int i, j, m;
+//	for (i = 1; i < 5; i++)
+//	{
+//		m = a[i];
+//		j = i - 1;
+//		while (j >= 0 && m > a[j])
+//		{
+//			a[j + 1] = a[j];
+//			j--;
+//		}
+//		a[j] = m;
+//	}
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%3d", a[i]);
+//	}
+//	printf("\n");
+//}
