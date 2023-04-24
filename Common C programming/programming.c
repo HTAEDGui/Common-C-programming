@@ -3,7 +3,6 @@
 #include<string.h>
 #include<math.h>
 #include<stdlib.h>
-#include<time.h>
 //#include<conio.h>
 //main()
 //{
@@ -2700,15 +2699,14 @@ eg：输入字符串“-1234”，输出整数-1234*/
 
 //main()
 //{
-//	int x = 5, y = 5;
-//	int b, c;
+//	int x = 5;
+//	int b = 0;
 //	b = --x + --x + --x + --x + --x;//先把所有--x优先执行完以后，再把x的值相加；
-//	c = --y + --y + ++y + y++ + y++ + y--;
-//
-//	printf("%d\n", x);
-//	printf("%d\n", y);
-//	printf("%d\n", b);
-//	printf("%d\n", c);
+//	//b += --x;
+//	//b += --x;
+//	//b += --x;
+//	//b += --x;
+//	printf("%d", b);
 //}
 
 //main()
@@ -2851,7 +2849,7 @@ eg：输入字符串“-1234”，输出整数-1234*/
 //			a[j + 1] = a[j];
 //			j--;
 //		}
-//		a[j+1] = m;
+//		a[j] = m;
 //	}
 //	for (i = 0; i < 5; i++)
 //	{
